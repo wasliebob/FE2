@@ -2,6 +2,4 @@
 !.gitignore
 !/src/
 !/src/*
-/src/api/java/thaumcraft/
-/src/api/java/thaumcraft/*
 !build.gradle
