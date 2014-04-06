@@ -35,6 +35,10 @@ public class Main {
     public static String modName = "ForestryExtras";
     public static String alias = "FE";
     
+    /**
+     * Just a test
+     * @param event
+     */
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
