@@ -1,0 +1,59 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.0-SNAPSHOT'
+    }
+}
+
+apply plugin: 'forge'
+
+version = "2-1.2.2"
+group= "ForestryExtras" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "ForestryExtras"
+
+minecraft {
+	version = "1.6.4-9.11.1.964"
+}
+
+dependencies{
+	compile files(
+	'build/libs/thaumcraft.zip',
+	'build/libs/forestry.jar',
+	'build/libs/CCC.jar',
+	'build/libs/IC2.jar',
+	'build/libs/NEI.jar',
+	'build/libs/TiC.jar',
+	'build/libs/FMP.jar',
+	'build/libs/CCL.jar',
+	'build/libs/TE.jar',
+	'build/libs/CoFH.jar',
+	'build/libs/EIO.jar',
+	'build/libs/BC.jar',
+	'build/libs/RC.jar',
+	'build/libs/TCE.jar',
+	'build/libs/Botania.jar'
+	)
+}
+
+
+processResources
+{
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod/info'
+                
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
