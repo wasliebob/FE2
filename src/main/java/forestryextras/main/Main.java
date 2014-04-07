@@ -35,19 +35,17 @@ public class Main {
     public static String modName = "ForestryExtras";
     public static String alias = "FE";
     
-    /**
-     * Just a test
-     * @param event
-     */
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
 		Config config = new Config();
 		Config.loadConfig(event);
 		
+		if(event.getSide() == Side.CLIENT){
 		File file = new File(Config.itemList);
 		if(!file.exists()){
 			file.mkdir();
+		}
 		}
     }
 
@@ -63,7 +61,9 @@ public class Main {
     	Bees.init();
     	Tabs.init();
     	initTiles();
-		FileHelper.init();
+		if(event.getSide() == Side.CLIENT){
+		FileHelper.init();}
+		
     	NetworkRegistry.instance().registerGuiHandler(this, new GUIHandler());
     	initEvents();
     	Recipes.init();
