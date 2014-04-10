@@ -78,7 +78,6 @@ public class Main {
     {
         GameRegistry.registerTileEntity(forestryextras.blocks.tiles.TileEntityProducer.class, "10001");
         GameRegistry.registerTileEntity(forestryextras.blocks.tiles.TileEntityUpgrader.class, "10002");
-        GameRegistry.registerTileEntity(forestryextras.blocks.tiles.TileEntityBeeEngine.class, "10003");
     }
     
     
